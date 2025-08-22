@@ -4,8 +4,8 @@
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/recipes-platform.git
-cd recipes-platform
+https://github.com/rohitrkvarathe111/RECIPES_PLATFORM.git
+cd RECIPES_PLATFORM
   
 ```
 ### 2. Create virtual environment & install dependencies
