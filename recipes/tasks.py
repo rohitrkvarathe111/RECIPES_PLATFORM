@@ -31,11 +31,11 @@ def resize_recipe_image(recipe_id):
                 ContentFile(buffer.getvalue()),
                 save=True
             )
-            print(f"✅ Resized image for recipe {recipe_id}")
+            print(f"Resized image for recipe {recipe_id}")
     except Recipe.DoesNotExist:
-        print(f"❌ Recipe {recipe_id} not found")
+        print(f"Recipe {recipe_id} not found")
     except Exception as e:
-        print(f"⚠️ Error resizing image for recipe {recipe_id}: {e}")
+        print(f"Error resizing image for recipe {recipe_id}: {e}")
 
 
 User = get_user_model()
@@ -48,7 +48,7 @@ def send_daily_email():
 
     # Skip Saturday (5) & Sunday (6)
     if today.weekday() in [5, 6]:
-        print("⏩ Weekend, skipping emails")
+        print("Weekend, skipping emails")
         return
 
     users = User.objects.all()
@@ -61,11 +61,11 @@ def send_daily_email():
                 recipient_list=[user.email],
                 fail_silently=False, 
             )
-            print(f"📧 Email sent to {user.email}")
+            print(f"Email sent to {user.email}")
         except Exception as e:
-            print(f"⚠️ Failed to send email to {user.email}: {e}")
+            print(f"Failed to send email to {user.email}: {e}")
 
-    print("✅ Daily emails sent")
+    print("Daily emails sent")
 
 
 @shared_task
@@ -101,7 +101,7 @@ def weekly_user_export_to_s3():
                 None, None, None, 0, 0, None
             ])
 
-    # Upload to S3
+
     s3_client = boto3.client(
         "s3",
         aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
@@ -118,4 +118,4 @@ def weekly_user_export_to_s3():
         ContentType="text/csv"
     )
 
-    print(f"✅ Exported all user data to S3: {file_name}")
+    print(f"Exported all user data to S3: {file_name}")

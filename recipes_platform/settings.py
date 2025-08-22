@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cl+s-gxvb-k6&f)ekqt!ywj*laoog23=-=nepub*pejye2333x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*", "localhost"]
 
 
 # Application definition
@@ -125,6 +125,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "accounts.User"
 
+#--------------------------------------------------------------------------
+import os
+MEDIA_URL = '/recipes/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'recipes/images')
 
 from datetime import timedelta
 
@@ -178,16 +182,13 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-DEFAULT_FROM_EMAIL = "rohitvarathe3@gmail.com"
-
-
 
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "rohitvarathe3@gmail.com"   # your Gmail
-EMAIL_HOST_PASSWORD = "ucsshzqkercvyarn"     # not your Gmail password!
+EMAIL_HOST_USER = "rohitvarathe3@gmail.com"  
+EMAIL_HOST_PASSWORD = "ucsshzqkercvyarn"     
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
