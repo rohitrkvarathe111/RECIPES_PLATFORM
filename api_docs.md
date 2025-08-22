@@ -120,9 +120,9 @@ Authorization: Bearer <access_token>
 - Headers: Authorization: Bearer <access_token>
 
 ## Create Rating (Customers Only)
--- Endpoint: POST /api/ratings
+- Endpoint: POST /api/ratings
 
--- Headers: Authorization: Bearer <access_token>
+- Headers: Authorization: Bearer <access_token>
 
 Request Body:
 ```bash
